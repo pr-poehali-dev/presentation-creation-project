@@ -76,12 +76,12 @@ export default function Index() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white">
+    <div className="min-h-screen bg-[#0d1117] text-white">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/90 backdrop-blur-sm border-b border-slate-700">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#161b22]/95 backdrop-blur-sm border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold text-blue-400">AWG</div>
+            <div className="text-2xl font-bold text-[#8b45ff]">AWG</div>
             <div className="hidden md:flex items-center space-x-8">
               {[
                 { id: 'hero', label: 'Главная' },
@@ -93,8 +93,8 @@ export default function Index() {
                 <button
                   key={id}
                   onClick={() => scrollToSection(id)}
-                  className={`text-sm transition-colors hover:text-blue-400 ${
-                    activeSection === id ? 'text-blue-400' : 'text-gray-300'
+                  className={`text-sm transition-colors hover:text-[#8b45ff] ${
+                    activeSection === id ? 'text-[#8b45ff]' : 'text-gray-300'
                   }`}
                 >
                   {label}
@@ -122,10 +122,10 @@ export default function Index() {
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="max-w-2xl">
-            <p className="text-blue-400 text-sm font-medium mb-4 animate-fade-in">next level IT</p>
+            <p className="text-[#8b45ff] text-sm font-medium mb-4 animate-fade-in">next level IT</p>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
               Выявим зоны роста бизнеса с помощью
-              <span className="text-blue-400"> IT-аудита</span>
+              <span className="text-[#8b45ff]"> IT-аудита</span>
             </h1>
             <p className="text-xl text-gray-300 mb-8 animate-fade-in">
               Профессиональный консалтинг и техническое сопровождение для масштабирования вашего бизнеса
@@ -133,7 +133,7 @@ export default function Index() {
             <div className="flex items-center space-x-4 animate-fade-in">
               <Button 
                 size="lg" 
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3"
+                className="bg-[#8b45ff] hover:bg-[#7c3aed] text-white px-8 py-3"
                 onClick={() => scrollToSection('contacts')}
               >
                 Получить консультацию
@@ -142,7 +142,7 @@ export default function Index() {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-slate-600 text-white hover:bg-slate-800 px-8 py-3"
+                className="border-gray-600 text-white hover:bg-gray-800 px-8 py-3"
                 onClick={() => scrollToSection('about')}
               >
                 Подробнее
@@ -158,11 +158,11 @@ export default function Index() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-slate-800/50">
+      <section id="about" className="py-20 bg-[#161b22]/50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold mb-6 text-blue-400">О компании</h2>
+              <h2 className="text-4xl font-bold mb-6 text-[#8b45ff]">О компании</h2>
               <p className="text-lg text-gray-300 mb-6">
                 AWG — это команда экспертов с многолетним опытом в области IT-консалтинга 
                 и технического сопровождения бизнеса. Мы помогаем компаниям оптимизировать 
@@ -174,21 +174,21 @@ export default function Index() {
               </p>
               <div className="grid grid-cols-3 gap-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-400 mb-2">50+</div>
+                  <div className="text-3xl font-bold text-[#8b45ff] mb-2">50+</div>
                   <div className="text-sm text-gray-400">Проектов</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-400 mb-2">5+</div>
+                  <div className="text-3xl font-bold text-[#8b45ff] mb-2">5+</div>
                   <div className="text-sm text-gray-400">Лет опыта</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-400 mb-2">24/7</div>
+                  <div className="text-3xl font-bold text-[#8b45ff] mb-2">24/7</div>
                   <div className="text-sm text-gray-400">Поддержка</div>
                 </div>
               </div>
             </div>
             <div className="relative">
-              <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg p-8">
+              <div className="bg-gradient-to-br from-[#8b45ff] to-[#7c3aed] rounded-lg p-8">
                 <h3 className="text-2xl font-bold mb-4">Наши ценности</h3>
                 <ul className="space-y-3">
                   <li className="flex items-center">
@@ -218,7 +218,7 @@ export default function Index() {
       <section id="services" className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-blue-400">Наши услуги</h2>
+            <h2 className="text-4xl font-bold mb-4 text-[#8b45ff]">Наши услуги</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Комплексные IT-решения для оптимизации и масштабирования вашего бизнеса
             </p>
@@ -226,9 +226,9 @@ export default function Index() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
-              <Card key={index} className="bg-slate-800 border-slate-700 hover:border-blue-500 transition-all duration-300 hover:scale-105">
+              <Card key={index} className="bg-[#161b22] border-gray-800 hover:border-[#8b45ff] transition-all duration-300 hover:scale-105">
                 <CardHeader className="text-center">
-                  <div className="mx-auto w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-4">
+                  <div className="mx-auto w-16 h-16 bg-[#8b45ff] rounded-full flex items-center justify-center mb-4">
                     <Icon name={service.icon} size={24} className="text-white" />
                   </div>
                   <CardTitle className="text-white">{service.title}</CardTitle>
@@ -245,10 +245,10 @@ export default function Index() {
       </section>
 
       {/* Cases Section */}
-      <section id="cases" className="py-20 bg-slate-800/50">
+      <section id="cases" className="py-20 bg-[#161b22]/50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-blue-400">Успешные кейсы</h2>
+            <h2 className="text-4xl font-bold mb-4 text-[#8b45ff]">Успешные кейсы</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Примеры проектов, которые помогли нашим клиентам достичь значительных результатов
             </p>
@@ -256,13 +256,13 @@ export default function Index() {
           
           <div className="grid md:grid-cols-3 gap-8">
             {cases.map((caseItem, index) => (
-              <Card key={index} className="bg-slate-900 border-slate-700 hover:border-blue-500 transition-all duration-300">
+              <Card key={index} className="bg-[#0d1117] border-gray-800 hover:border-[#8b45ff] transition-all duration-300">
                 <CardHeader>
                   <CardTitle className="text-white text-xl">{caseItem.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-gray-300">{caseItem.description}</p>
-                  <div className="bg-blue-600 rounded-lg p-4">
+                  <div className="bg-[#8b45ff] rounded-lg p-4">
                     <div className="text-white font-bold text-lg">{caseItem.result}</div>
                   </div>
                 </CardContent>
@@ -276,7 +276,7 @@ export default function Index() {
       <section id="contacts" className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-blue-400">Свяжитесь с нами</h2>
+            <h2 className="text-4xl font-bold mb-4 text-[#8b45ff]">Свяжитесь с нами</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Готовы обсудить ваш проект и найти оптимальные IT-решения
             </p>
@@ -292,25 +292,25 @@ export default function Index() {
               
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <Icon name="Phone" size={20} className="text-blue-400 mr-4" />
+                  <Icon name="Phone" size={20} className="text-[#8b45ff] mr-4" />
                   <span className="text-gray-300">+7 495 278-07-08</span>
                 </div>
                 <div className="flex items-center">
-                  <Icon name="Mail" size={20} className="text-blue-400 mr-4" />
+                  <Icon name="Mail" size={20} className="text-[#8b45ff] mr-4" />
                   <span className="text-gray-300">info@awg-consulting.ru</span>
                 </div>
                 <div className="flex items-center">
-                  <Icon name="MapPin" size={20} className="text-blue-400 mr-4" />
+                  <Icon name="MapPin" size={20} className="text-[#8b45ff] mr-4" />
                   <span className="text-gray-300">Москва, ул. Тверская, 15</span>
                 </div>
                 <div className="flex items-center">
-                  <Icon name="Clock" size={20} className="text-blue-400 mr-4" />
+                  <Icon name="Clock" size={20} className="text-[#8b45ff] mr-4" />
                   <span className="text-gray-300">Пн-Пт: 9:00-18:00</span>
                 </div>
               </div>
             </div>
             
-            <Card className="bg-slate-800 border-slate-700">
+            <Card className="bg-[#161b22] border-gray-800">
               <CardHeader>
                 <CardTitle className="text-white">Оставить заявку</CardTitle>
               </CardHeader>
@@ -319,31 +319,31 @@ export default function Index() {
                   <input 
                     type="text" 
                     placeholder="Ваше имя" 
-                    className="w-full p-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none"
+                    className="w-full p-3 bg-[#0d1117] border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-[#8b45ff] focus:outline-none"
                   />
                 </div>
                 <div>
                   <input 
                     type="email" 
                     placeholder="Email" 
-                    className="w-full p-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none"
+                    className="w-full p-3 bg-[#0d1117] border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-[#8b45ff] focus:outline-none"
                   />
                 </div>
                 <div>
                   <input 
                     type="tel" 
                     placeholder="Телефон" 
-                    className="w-full p-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none"
+                    className="w-full p-3 bg-[#0d1117] border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-[#8b45ff] focus:outline-none"
                   />
                 </div>
                 <div>
                   <textarea 
                     placeholder="Опишите вашу задачу" 
                     rows={4}
-                    className="w-full p-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none resize-none"
+                    className="w-full p-3 bg-[#0d1117] border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-[#8b45ff] focus:outline-none resize-none"
                   ></textarea>
                 </div>
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3">
+                <Button className="w-full bg-[#8b45ff] hover:bg-[#7c3aed] text-white py-3">
                   Отправить заявку
                   <Icon name="Send" size={16} className="ml-2" />
                 </Button>
@@ -354,10 +354,10 @@ export default function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 border-t border-slate-700 py-8">
+      <footer className="bg-[#0d1117] border-t border-gray-800 py-8">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-2xl font-bold text-blue-400 mb-4 md:mb-0">AWG</div>
+            <div className="text-2xl font-bold text-[#8b45ff] mb-4 md:mb-0">AWG</div>
             <div className="text-gray-400 text-sm">
               © 2024 AWG. Все права защищены.
             </div>

@@ -36,42 +36,42 @@ export default function Index() {
 
   const services = [
     {
+      icon: 'Code',
+      title: 'Разработка',
+      description: 'Создание PWA-приложений для интернет- и мобильного банкинга. Корпоративные порталы и интеграция с Битрикс24.'
+    },
+    {
+      icon: 'Search',
+      title: 'Аудит',
+      description: 'Комплексные UX/UI и технические аудиты. Оптимизация форм заявок и onboarding-сценариев для финтеха.'
+    },
+    {
+      icon: 'Clock',
+      title: 'Поддержка 24/7',
+      description: 'Круглосуточная техподдержка по SLA. Система мониторинга и ежемесячная отчетность.'
+    },
+    {
       icon: 'Shield',
-      title: 'IT-аудит',
-      description: 'Комплексная оценка IT-инфраструктуры и выявление зон роста'
-    },
-    {
-      icon: 'Settings',
-      title: 'Техническое сопровождение',
-      description: 'Поддержка и обслуживание корпоративных систем 24/7'
-    },
-    {
-      icon: 'TrendingUp',
-      title: 'Оптимизация процессов',
-      description: 'Автоматизация бизнес-процессов и повышение эффективности'
-    },
-    {
-      icon: 'Cloud',
-      title: 'Облачная миграция',
-      description: 'Безопасный переход в облачную инфраструктуру'
+      title: 'Безопасность',
+      description: 'Отказоустойчивая инфраструктура для критичных финансовых сервисов. Защита от внешних угроз.'
     }
   ];
 
   const cases = [
     {
-      title: 'Финтех стартап',
-      description: 'Внедрение системы мониторинга и автоматизация CI/CD процессов',
-      result: '+40% производительности'
+      title: 'Микрофинансовая организация',
+      description: 'Разработка PWA-платформы для онлайн-кредитования с интеграцией Smart Engines',
+      result: '+60% конверсия заявок'
     },
     {
-      title: 'Розничная сеть',
-      description: 'Оптимизация IT-инфраструктуры и облачная миграция',
-      result: '-60% затрат на IT'
+      title: 'Онлайн-банк',
+      description: 'UX-оптимизация мобильного приложения и внедрение A/B-тестирования',
+      result: '+40% пользовательской активности'
     },
     {
-      title: 'Производственная компания',
-      description: 'Комплексный IT-аудит и модернизация корпоративных систем',
-      result: '+25% эффективности'
+      title: 'Страховая компания',
+      description: 'Комплексный аудит и миграция на Yandex Cloud с 24/7 мониторингом',
+      result: '-50% время обработки заявок'
     }
   ];
 
@@ -103,7 +103,7 @@ export default function Index() {
             </div>
             <div className="flex items-center space-x-4">
               <Icon name="Phone" size={16} className="text-gray-400" />
-              <span className="text-sm text-gray-300">+7 495 278-07-08</span>
+              <span className="text-sm text-gray-300">+7 (495) 123-45-67</span>
             </div>
           </div>
         </div>
@@ -122,13 +122,14 @@ export default function Index() {
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="max-w-2xl">
-            <p className="text-[#8b45ff] text-sm font-medium mb-4 animate-fade-in">next level IT</p>
+            <p className="text-[#8b45ff] text-sm font-medium mb-4 animate-fade-in">FinTech Solutions</p>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
-              Выявим зоны роста бизнеса с помощью
-              <span className="text-[#8b45ff]"> IT-аудита</span>
+              Технологический партнер
+              <span className="text-[#8b45ff]"> для FinTech</span>
             </h1>
             <p className="text-xl text-gray-300 mb-8 animate-fade-in">
-              Профессиональный консалтинг и техническое сопровождение для масштабирования вашего бизнеса
+              awg.ru создает цифровые продукты для банков, страховых компаний и финтех-стартапов. 
+              Объединяем экспертизу в разработке, UX-дизайне, безопасности и аналитике.
             </p>
             <div className="flex items-center space-x-4 animate-fade-in">
               <Button 
@@ -136,7 +137,7 @@ export default function Index() {
                 className="bg-[#8b45ff] hover:bg-[#7c3aed] text-white px-8 py-3"
                 onClick={() => scrollToSection('contacts')}
               >
-                Получить консультацию
+                Наши компетенции
                 <Icon name="ArrowRight" size={16} className="ml-2" />
               </Button>
               <Button 
@@ -164,48 +165,48 @@ export default function Index() {
             <div>
               <h2 className="text-4xl font-bold mb-6 text-[#8b45ff]">О компании</h2>
               <p className="text-lg text-gray-300 mb-6">
-                AWG — это команда экспертов с многолетним опытом в области IT-консалтинга 
-                и технического сопровождения бизнеса. Мы помогаем компаниям оптимизировать 
-                IT-процессы и масштабировать технологические решения.
+                awg.ru разрабатывает цифровые продукты и сервисы для бизнеса, включая банки, 
+                страховые компании, микрофинансовые организации и финтех-стартапы.
               </p>
               <p className="text-lg text-gray-300 mb-8">
-                Наша миссия — выявлять скрытые возможности для роста вашего бизнеса 
-                через внедрение передовых IT-решений и best practices.
+                Мы объединяем экспертизу в веб-разработке, UX-дизайне, безопасности и аналитике 
+                для создания комплексных решений, которые помогают финансовым компаниям быть 
+                технологичными, клиентоориентированными и конкурентоспособными.
               </p>
               <div className="grid grid-cols-3 gap-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-[#8b45ff] mb-2">50+</div>
-                  <div className="text-sm text-gray-400">Проектов</div>
+                  <div className="text-3xl font-bold text-[#8b45ff] mb-2">100+</div>
+                  <div className="text-sm text-gray-400">FinTech проектов</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-[#8b45ff] mb-2">5+</div>
+                  <div className="text-3xl font-bold text-[#8b45ff] mb-2">10+</div>
                   <div className="text-sm text-gray-400">Лет опыта</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-[#8b45ff] mb-2">24/7</div>
-                  <div className="text-sm text-gray-400">Поддержка</div>
+                  <div className="text-3xl font-bold text-[#8b45ff] mb-2">365/24/7</div>
+                  <div className="text-sm text-gray-400">SLA поддержка</div>
                 </div>
               </div>
             </div>
             <div className="relative">
               <div className="bg-gradient-to-br from-[#8b45ff] to-[#7c3aed] rounded-lg p-8">
-                <h3 className="text-2xl font-bold mb-4">Наши ценности</h3>
+                <h3 className="text-2xl font-bold mb-4">Преимущества для FinTech</h3>
                 <ul className="space-y-3">
                   <li className="flex items-center">
                     <Icon name="CheckCircle" size={20} className="text-green-400 mr-3" />
-                    <span>Прозрачность в работе</span>
+                    <span>Безопасность и надёжность</span>
                   </li>
                   <li className="flex items-center">
                     <Icon name="CheckCircle" size={20} className="text-green-400 mr-3" />
-                    <span>Результат превыше всего</span>
+                    <span>Мобильность и гибкость</span>
                   </li>
                   <li className="flex items-center">
                     <Icon name="CheckCircle" size={20} className="text-green-400 mr-3" />
-                    <span>Инновационный подход</span>
+                    <span>Ориентация на результат</span>
                   </li>
                   <li className="flex items-center">
                     <Icon name="CheckCircle" size={20} className="text-green-400 mr-3" />
-                    <span>Долгосрочное партнерство</span>
+                    <span>Скорость внедрения</span>
                   </li>
                 </ul>
               </div>
@@ -218,9 +219,9 @@ export default function Index() {
       <section id="services" className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-[#8b45ff]">Наши услуги</h2>
+            <h2 className="text-4xl font-bold mb-4 text-[#8b45ff]">Ключевые компетенции для FinTech</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Комплексные IT-решения для оптимизации и масштабирования вашего бизнеса
+              Комплексные решения для финансовых организаций: безопасность, инновации и результат
             </p>
           </div>
           
@@ -248,9 +249,9 @@ export default function Index() {
       <section id="cases" className="py-20 bg-[#161b22]/50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-[#8b45ff]">Успешные кейсы</h2>
+            <h2 className="text-4xl font-bold mb-4 text-[#8b45ff]">Преимущества для FinTech</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Примеры проектов, которые помогли нашим клиентам достичь значительных результатов
+              Почему финансовые компании выбирают awg.ru как технологического партнера
             </p>
           </div>
           
@@ -284,24 +285,24 @@ export default function Index() {
           
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h3 className="text-2xl font-bold mb-6">Получить консультацию</h3>
+              <h3 className="text-2xl font-bold mb-6">Партнёрство с AWG</h3>
               <p className="text-gray-300 mb-8">
-                Оставьте заявку, и наш эксперт свяжется с вами в течение часа для обсуждения 
-                возможностей оптимизации вашей IT-инфраструктуры.
+                Обсудим возможности технологического партнёрства для вашей финансовой организации. 
+                Усилим безопасность, внедрим инновации и повысим эффективность.
               </p>
               
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Icon name="Phone" size={20} className="text-[#8b45ff] mr-4" />
-                  <span className="text-gray-300">+7 495 278-07-08</span>
+                  <span className="text-gray-300">+7 (495) 123-45-67</span>
                 </div>
                 <div className="flex items-center">
                   <Icon name="Mail" size={20} className="text-[#8b45ff] mr-4" />
-                  <span className="text-gray-300">info@awg-consulting.ru</span>
+                  <span className="text-gray-300">fintech@awg.ru</span>
                 </div>
                 <div className="flex items-center">
                   <Icon name="MapPin" size={20} className="text-[#8b45ff] mr-4" />
-                  <span className="text-gray-300">Москва, ул. Тверская, 15</span>
+                  <span className="text-gray-300">Москва, Бизнес-центр «Москва-Сити»</span>
                 </div>
                 <div className="flex items-center">
                   <Icon name="Clock" size={20} className="text-[#8b45ff] mr-4" />
@@ -312,7 +313,7 @@ export default function Index() {
             
             <Card className="bg-[#161b22] border-gray-800">
               <CardHeader>
-                <CardTitle className="text-white">Оставить заявку</CardTitle>
+                <CardTitle className="text-white">Обсудить партнёрство</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
@@ -338,13 +339,13 @@ export default function Index() {
                 </div>
                 <div>
                   <textarea 
-                    placeholder="Опишите вашу задачу" 
+                    placeholder="Опишите вашу FinTech компанию" 
                     rows={4}
                     className="w-full p-3 bg-[#0d1117] border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-[#8b45ff] focus:outline-none resize-none"
                   ></textarea>
                 </div>
                 <Button className="w-full bg-[#8b45ff] hover:bg-[#7c3aed] text-white py-3">
-                  Отправить заявку
+                  Обсудить партнёрство
                   <Icon name="Send" size={16} className="ml-2" />
                 </Button>
               </CardContent>

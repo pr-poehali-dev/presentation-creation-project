@@ -1,370 +1,275 @@
-import { useState, useEffect } from 'react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import ProductCard from '@/components/ProductCard';
+import CategoryCard from '@/components/CategoryCard';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 
-export default function Index() {
-  const [activeSection, setActiveSection] = useState('hero');
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['hero', 'about', 'services', 'cases', 'contacts'];
-      const scrollPosition = window.scrollY + 100;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const services = [
+const Index = () => {
+  const heroSlides = [
     {
-      icon: 'Code',
-      title: 'Разработка',
-      description: 'Создание PWA-приложений для интернет- и мобильного банкинга. Корпоративные порталы и интеграция с Битрикс24.'
-    },
-    {
-      icon: 'Search',
-      title: 'Аудит',
-      description: 'Комплексные UX/UI и технические аудиты. Оптимизация форм заявок и onboarding-сценариев для финтеха.'
-    },
-    {
-      icon: 'Clock',
-      title: 'Поддержка 24/7',
-      description: 'Круглосуточная техподдержка по SLA. Система мониторинга и ежемесячная отчетность.'
-    },
-    {
-      icon: 'Shield',
-      title: 'Безопасность',
-      description: 'Отказоустойчивая инфраструктура для критичных финансовых сервисов. Защита от внешних угроз.'
+      title: 'Новая коллекция премиум косметики',
+      description: 'Откройте для себя эксклюзивные средства для ухода',
+      image: 'https://cdn.poehali.dev/projects/0672a6e1-facf-48c9-989e-622190e23e83/files/5847658c-3da4-40b3-a13c-0a6560a74720.jpg'
     }
   ];
 
-  const cases = [
+  const categories = [
+    { title: 'Уход за лицом', image: 'https://cdn.poehali.dev/projects/0672a6e1-facf-48c9-989e-622190e23e83/files/5847658c-3da4-40b3-a13c-0a6560a74720.jpg', count: 1250 },
+    { title: 'Макияж', image: 'https://cdn.poehali.dev/projects/0672a6e1-facf-48c9-989e-622190e23e83/files/e642d313-6bce-4fc4-b643-a469cee9fea7.jpg', count: 890 },
+    { title: 'Парфюмерия', image: 'https://cdn.poehali.dev/projects/0672a6e1-facf-48c9-989e-622190e23e83/files/4859ae2b-416a-4af5-8c1b-edde77f2aa58.jpg', count: 450 },
+    { title: 'Уход за телом', image: 'https://cdn.poehali.dev/projects/0672a6e1-facf-48c9-989e-622190e23e83/files/5847658c-3da4-40b3-a13c-0a6560a74720.jpg', count: 720 }
+  ];
+
+  const featuredProducts = [
     {
-      title: 'Микрофинансовая организация',
-      description: 'Разработка PWA-платформы для онлайн-кредитования с интеграцией Smart Engines',
-      result: '+60% конверсия заявок'
+      id: 1,
+      image: 'https://cdn.poehali.dev/projects/0672a6e1-facf-48c9-989e-622190e23e83/files/5847658c-3da4-40b3-a13c-0a6560a74720.jpg',
+      title: 'Увлажняющий крем для лица с гиалуроновой кислотой',
+      brand: 'La Roche-Posay',
+      price: 2890,
+      oldPrice: 3490,
+      rating: 5,
+      isNew: true,
+      isSale: true
     },
     {
-      title: 'Онлайн-банк',
-      description: 'UX-оптимизация мобильного приложения и внедрение A/B-тестирования',
-      result: '+40% пользовательской активности'
+      id: 2,
+      image: 'https://cdn.poehali.dev/projects/0672a6e1-facf-48c9-989e-622190e23e83/files/e642d313-6bce-4fc4-b643-a469cee9fea7.jpg',
+      title: 'Палетка теней для век Nude Collection',
+      brand: 'Urban Decay',
+      price: 4290,
+      rating: 5,
+      isNew: true
     },
     {
-      title: 'Страховая компания',
-      description: 'Комплексный аудит и миграция на Yandex Cloud с 24/7 мониторингом',
-      result: '-50% время обработки заявок'
+      id: 3,
+      image: 'https://cdn.poehali.dev/projects/0672a6e1-facf-48c9-989e-622190e23e83/files/4859ae2b-416a-4af5-8c1b-edde77f2aa58.jpg',
+      title: 'Парфюмерная вода Floral Dreams',
+      brand: 'Dior',
+      price: 8900,
+      rating: 5
+    },
+    {
+      id: 4,
+      image: 'https://cdn.poehali.dev/projects/0672a6e1-facf-48c9-989e-622190e23e83/files/5847658c-3da4-40b3-a13c-0a6560a74720.jpg',
+      title: 'Сыворотка с витамином C для сияния кожи',
+      brand: 'The Ordinary',
+      price: 1590,
+      oldPrice: 1990,
+      rating: 4,
+      isSale: true
+    },
+    {
+      id: 5,
+      image: 'https://cdn.poehali.dev/projects/0672a6e1-facf-48c9-989e-622190e23e83/files/e642d313-6bce-4fc4-b643-a469cee9fea7.jpg',
+      title: 'Тушь для ресниц с эффектом объема',
+      brand: 'Maybelline',
+      price: 890,
+      rating: 5
+    },
+    {
+      id: 6,
+      image: 'https://cdn.poehali.dev/projects/0672a6e1-facf-48c9-989e-622190e23e83/files/4859ae2b-416a-4af5-8c1b-edde77f2aa58.jpg',
+      title: 'Нишевый аромат Oud & Rose',
+      brand: 'Tom Ford',
+      price: 15900,
+      rating: 5,
+      isNew: true
+    },
+    {
+      id: 7,
+      image: 'https://cdn.poehali.dev/projects/0672a6e1-facf-48c9-989e-622190e23e83/files/5847658c-3da4-40b3-a13c-0a6560a74720.jpg',
+      title: 'Ночной крем для восстановления кожи',
+      brand: 'Estée Lauder',
+      price: 5490,
+      rating: 5
+    },
+    {
+      id: 8,
+      image: 'https://cdn.poehali.dev/projects/0672a6e1-facf-48c9-989e-622190e23e83/files/e642d313-6bce-4fc4-b643-a469cee9fea7.jpg',
+      title: 'Помада матовая стойкая',
+      brand: 'MAC',
+      price: 2190,
+      rating: 4
+    }
+  ];
+
+  const benefits = [
+    {
+      icon: 'Truck',
+      title: 'Бесплатная доставка',
+      description: 'При заказе от 3000 ₽'
+    },
+    {
+      icon: 'ShieldCheck',
+      title: 'Гарантия качества',
+      description: 'Только оригинальная продукция'
+    },
+    {
+      icon: 'Gift',
+      title: 'Подарки к заказу',
+      description: 'Пробники и сюрпризы'
+    },
+    {
+      icon: 'Sparkles',
+      title: 'Бонусная программа',
+      description: 'Кешбэк до 10%'
     }
   ];
 
   return (
-    <div className="min-h-screen bg-[#0d1117] text-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#161b22]/95 backdrop-blur-sm border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold text-[#8b45ff]">AWG</div>
-            <div className="hidden md:flex items-center space-x-8">
-              {[
-                { id: 'hero', label: 'Главная' },
-                { id: 'about', label: 'О компании' },
-                { id: 'services', label: 'Услуги' },
-                { id: 'cases', label: 'Кейсы' },
-                { id: 'contacts', label: 'Контакты' }
-              ].map(({ id, label }) => (
-                <button
-                  key={id}
-                  onClick={() => scrollToSection(id)}
-                  className={`text-sm transition-colors hover:text-[#8b45ff] ${
-                    activeSection === id ? 'text-[#8b45ff]' : 'text-gray-300'
-                  }`}
-                >
-                  {label}
-                </button>
+    <div className="min-h-screen flex flex-col">
+      <Header />
+
+      <main className="flex-1">
+        <section className="relative h-[600px] bg-secondary overflow-hidden">
+          <img
+            src={heroSlides[0].image}
+            alt={heroSlides[0].title}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
+          
+          <div className="absolute inset-0 container mx-auto px-4 flex items-center">
+            <div className="max-w-xl text-white space-y-6">
+              <Badge className="bg-accent text-accent-foreground hover:bg-accent">
+                Новинка
+              </Badge>
+              <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+                {heroSlides[0].title}
+              </h1>
+              <p className="text-xl text-white/90">
+                {heroSlides[0].description}
+              </p>
+              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+                Смотреть каталог
+                <Icon name="ArrowRight" size={20} className="ml-2" />
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        <section className="container mx-auto px-4 py-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {benefits.map((benefit) => (
+              <div key={benefit.title} className="text-center space-y-3">
+                <div className="w-14 h-14 mx-auto bg-accent/10 rounded-full flex items-center justify-center">
+                  <Icon name={benefit.icon as any} size={24} className="text-accent" />
+                </div>
+                <h3 className="font-semibold">{benefit.title}</h3>
+                <p className="text-sm text-muted-foreground">
+                  {benefit.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="container mx-auto px-4 py-16">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-3xl font-bold">Популярные категории</h2>
+            <Button variant="ghost" className="hidden md:flex">
+              Все категории
+              <Icon name="ArrowRight" size={20} className="ml-2" />
+            </Button>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {categories.map((category) => (
+              <CategoryCard key={category.title} {...category} />
+            ))}
+          </div>
+        </section>
+
+        <section className="bg-secondary py-16">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="text-3xl font-bold mb-2">Хиты продаж</h2>
+                <p className="text-muted-foreground">
+                  Самые популярные товары этого месяца
+                </p>
+              </div>
+              <Button variant="outline" className="hidden md:flex">
+                Смотреть все
+                <Icon name="ArrowRight" size={20} className="ml-2" />
+              </Button>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {featuredProducts.map((product) => (
+                <ProductCard key={product.id} {...product} />
               ))}
             </div>
-            <div className="flex items-center space-x-4">
-              <Icon name="Phone" size={16} className="text-gray-400" />
-              <span className="text-sm text-gray-300">+7 (495) 123-45-67</span>
-            </div>
           </div>
-        </div>
-      </nav>
+        </section>
 
-      {/* Hero Section */}
-      <section id="hero" className="min-h-screen flex items-center relative overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="/img/286c10f4-0886-427f-ba1d-51049fcc72e0.jpg" 
-            alt="IT Infrastructure" 
-            className="w-full h-full object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-transparent"></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="max-w-2xl">
-            <p className="text-[#8b45ff] text-sm font-medium mb-4 animate-fade-in">FinTech Solutions</p>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
-              Технологический партнер
-              <span className="text-[#8b45ff]"> для FinTech</span>
-            </h1>
-            <p className="text-xl text-gray-300 mb-8 animate-fade-in">
-              awg.ru создает цифровые продукты для банков, страховых компаний и финтех-стартапов. 
-              Объединяем экспертизу в разработке, UX-дизайне, безопасности и аналитике.
-            </p>
-            <div className="flex items-center space-x-4 animate-fade-in">
-              <Button 
-                size="lg" 
-                className="bg-[#8b45ff] hover:bg-[#7c3aed] text-white px-8 py-3"
-                onClick={() => scrollToSection('contacts')}
-              >
-                Наши компетенции
-                <Icon name="ArrowRight" size={16} className="ml-2" />
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="border-gray-600 text-white hover:bg-gray-800 px-8 py-3"
-                onClick={() => scrollToSection('about')}
-              >
-                Подробнее
+        <section className="container mx-auto px-4 py-16">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="relative aspect-square rounded-lg overflow-hidden">
+              <img
+                src="https://cdn.poehali.dev/projects/0672a6e1-facf-48c9-989e-622190e23e83/files/5847658c-3da4-40b3-a13c-0a6560a74720.jpg"
+                alt="Бренды"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="space-y-6">
+              <Badge className="bg-accent text-accent-foreground hover:bg-accent">
+                Премиум бренды
+              </Badge>
+              <h2 className="text-4xl font-bold">
+                Эксклюзивные бренды косметики
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Мы работаем только с проверенными брендами и официальными дистрибьюторами. 
+                Гарантируем подлинность каждого продукта.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  'Сертифицированная продукция',
+                  'Прямые поставки от производителей',
+                  'Контроль качества на каждом этапе',
+                  'Профессиональные консультации'
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3">
+                    <Icon name="CheckCircle" size={20} className="text-accent" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+                Все бренды
+                <Icon name="ArrowRight" size={20} className="ml-2" />
               </Button>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <Icon name="ChevronDown" size={24} className="text-gray-400" />
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="py-20 bg-[#161b22]/50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold mb-6 text-[#8b45ff]">О компании</h2>
-              <p className="text-lg text-gray-300 mb-6">
-                awg.ru разрабатывает цифровые продукты и сервисы для бизнеса, включая банки, 
-                страховые компании, микрофинансовые организации и финтех-стартапы.
-              </p>
-              <p className="text-lg text-gray-300 mb-8">
-                Мы объединяем экспертизу в веб-разработке, UX-дизайне, безопасности и аналитике 
-                для создания комплексных решений, которые помогают финансовым компаниям быть 
-                технологичными, клиентоориентированными и конкурентоспособными.
-              </p>
-              <div className="grid grid-cols-3 gap-8">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-[#8b45ff] mb-2">100+</div>
-                  <div className="text-sm text-gray-400">FinTech проектов</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-[#8b45ff] mb-2">10+</div>
-                  <div className="text-sm text-gray-400">Лет опыта</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-[#8b45ff] mb-2">365/24/7</div>
-                  <div className="text-sm text-gray-400">SLA поддержка</div>
-                </div>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="bg-gradient-to-br from-[#8b45ff] to-[#7c3aed] rounded-lg p-8">
-                <h3 className="text-2xl font-bold mb-4">Преимущества для FinTech</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-center">
-                    <Icon name="CheckCircle" size={20} className="text-green-400 mr-3" />
-                    <span>Безопасность и надёжность</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Icon name="CheckCircle" size={20} className="text-green-400 mr-3" />
-                    <span>Мобильность и гибкость</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Icon name="CheckCircle" size={20} className="text-green-400 mr-3" />
-                    <span>Ориентация на результат</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Icon name="CheckCircle" size={20} className="text-green-400 mr-3" />
-                    <span>Скорость внедрения</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section id="services" className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-[#8b45ff]">Ключевые компетенции для FinTech</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Комплексные решения для финансовых организаций: безопасность, инновации и результат
+        <section className="bg-accent text-accent-foreground py-16">
+          <div className="container mx-auto px-4 text-center space-y-6">
+            <h2 className="text-4xl font-bold">
+              Подпишитесь на новости и акции
+            </h2>
+            <p className="text-lg max-w-2xl mx-auto">
+              Получайте эксклюзивные предложения и будьте в курсе новинок первыми
             </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, index) => (
-              <Card key={index} className="bg-[#161b22] border-gray-800 hover:border-[#8b45ff] transition-all duration-300 hover:scale-105">
-                <CardHeader className="text-center">
-                  <div className="mx-auto w-16 h-16 bg-[#8b45ff] rounded-full flex items-center justify-center mb-4">
-                    <Icon name={service.icon} size={24} className="text-white" />
-                  </div>
-                  <CardTitle className="text-white">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-300 text-center">
-                    {service.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Cases Section */}
-      <section id="cases" className="py-20 bg-[#161b22]/50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-[#8b45ff]">Преимущества для FinTech</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Почему финансовые компании выбирают awg.ru как технологического партнера
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {cases.map((caseItem, index) => (
-              <Card key={index} className="bg-[#0d1117] border-gray-800 hover:border-[#8b45ff] transition-all duration-300">
-                <CardHeader>
-                  <CardTitle className="text-white text-xl">{caseItem.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-gray-300">{caseItem.description}</p>
-                  <div className="bg-[#8b45ff] rounded-lg p-4">
-                    <div className="text-white font-bold text-lg">{caseItem.result}</div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contacts Section */}
-      <section id="contacts" className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-[#8b45ff]">Свяжитесь с нами</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Готовы обсудить ваш проект и найти оптимальные IT-решения
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-2xl font-bold mb-6">Партнёрство с AWG</h3>
-              <p className="text-gray-300 mb-8">
-                Обсудим возможности технологического партнёрства для вашей финансовой организации. 
-                Усилим безопасность, внедрим инновации и повысим эффективность.
-              </p>
-              
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <Icon name="Phone" size={20} className="text-[#8b45ff] mr-4" />
-                  <span className="text-gray-300">+7 (495) 123-45-67</span>
-                </div>
-                <div className="flex items-center">
-                  <Icon name="Mail" size={20} className="text-[#8b45ff] mr-4" />
-                  <span className="text-gray-300">fintech@awg.ru</span>
-                </div>
-                <div className="flex items-center">
-                  <Icon name="MapPin" size={20} className="text-[#8b45ff] mr-4" />
-                  <span className="text-gray-300">Москва, Бизнес-центр «Москва-Сити»</span>
-                </div>
-                <div className="flex items-center">
-                  <Icon name="Clock" size={20} className="text-[#8b45ff] mr-4" />
-                  <span className="text-gray-300">Пн-Пт: 9:00-18:00</span>
-                </div>
-              </div>
-            </div>
-            
-            <Card className="bg-[#161b22] border-gray-800">
-              <CardHeader>
-                <CardTitle className="text-white">Обсудить партнёрство</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <input 
-                    type="text" 
-                    placeholder="Ваше имя" 
-                    className="w-full p-3 bg-[#0d1117] border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-[#8b45ff] focus:outline-none"
-                  />
-                </div>
-                <div>
-                  <input 
-                    type="email" 
-                    placeholder="Email" 
-                    className="w-full p-3 bg-[#0d1117] border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-[#8b45ff] focus:outline-none"
-                  />
-                </div>
-                <div>
-                  <input 
-                    type="tel" 
-                    placeholder="Телефон" 
-                    className="w-full p-3 bg-[#0d1117] border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-[#8b45ff] focus:outline-none"
-                  />
-                </div>
-                <div>
-                  <textarea 
-                    placeholder="Опишите вашу FinTech компанию" 
-                    rows={4}
-                    className="w-full p-3 bg-[#0d1117] border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-[#8b45ff] focus:outline-none resize-none"
-                  ></textarea>
-                </div>
-                <Button className="w-full bg-[#8b45ff] hover:bg-[#7c3aed] text-white py-3">
-                  Обсудить партнёрство
-                  <Icon name="Send" size={16} className="ml-2" />
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-[#0d1117] border-t border-gray-800 py-8">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-2xl font-bold text-[#8b45ff] mb-4 md:mb-0">AWG</div>
-            <div className="text-gray-400 text-sm">
-              © 2024 AWG. Все права защищены.
+            <div className="max-w-md mx-auto flex gap-3">
+              <input
+                type="email"
+                placeholder="Ваш email"
+                className="flex-1 h-12 px-4 rounded bg-white text-foreground"
+              />
+              <Button size="lg" variant="secondary">
+                Подписаться
+              </Button>
             </div>
           </div>
-        </div>
-      </footer>
+        </section>
+      </main>
+
+      <Footer />
     </div>
   );
-}
+};
+
+export default Index;

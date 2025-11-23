@@ -143,10 +143,12 @@ const Index = () => {
               <p className="text-xl text-white/90">
                 {heroSlides[0].description}
               </p>
-              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-                Смотреть каталог
-                <Icon name="ArrowRight" size={20} className="ml-2" />
-              </Button>
+              <a href="/catalog">
+                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+                  Смотреть каталог
+                  <Icon name="ArrowRight" size={20} className="ml-2" />
+                </Button>
+              </a>
             </div>
           </div>
         </section>
@@ -170,10 +172,12 @@ const Index = () => {
         <section className="container mx-auto px-4 py-16">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl font-bold">Популярные категории</h2>
-            <Button variant="ghost" className="hidden md:flex">
-              Все категории
-              <Icon name="ArrowRight" size={20} className="ml-2" />
-            </Button>
+            <a href="/catalog">
+              <Button variant="ghost" className="hidden md:flex">
+                Все категории
+                <Icon name="ArrowRight" size={20} className="ml-2" />
+              </Button>
+            </a>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {categories.map((category) => (
@@ -191,10 +195,12 @@ const Index = () => {
                   Самые популярные товары этого месяца
                 </p>
               </div>
-              <Button variant="outline" className="hidden md:flex">
-                Смотреть все
-                <Icon name="ArrowRight" size={20} className="ml-2" />
-              </Button>
+              <a href="/catalog">
+                <Button variant="outline" className="hidden md:flex">
+                  Смотреть все
+                  <Icon name="ArrowRight" size={20} className="ml-2" />
+                </Button>
+              </a>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {featuredProducts.map((product) => (
@@ -237,10 +243,12 @@ const Index = () => {
                   </li>
                 ))}
               </ul>
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
-                Все бренды
-                <Icon name="ArrowRight" size={20} className="ml-2" />
-              </Button>
+              <a href="/catalog">
+                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+                  Все бренды
+                  <Icon name="ArrowRight" size={20} className="ml-2" />
+                </Button>
+              </a>
             </div>
           </div>
         </section>

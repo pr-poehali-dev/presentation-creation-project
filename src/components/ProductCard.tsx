@@ -3,6 +3,7 @@ import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 
 interface ProductCardProps {
+  id?: number;
   image: string;
   title: string;
   brand: string;
@@ -14,6 +15,7 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({
+  id = 1,
   image,
   title,
   brand,
@@ -24,7 +26,7 @@ const ProductCard = ({
   isSale = false,
 }: ProductCardProps) => {
   return (
-    <div className="group relative bg-card rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300">
+    <a href={`/product/${id}`} className="group relative bg-card rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 block">
       <div className="relative aspect-square overflow-hidden bg-secondary">
         <img
           src={image}
@@ -88,7 +90,7 @@ const ProductCard = ({
           )}
         </div>
       </div>
-    </div>
+    </a>
   );
 };
 

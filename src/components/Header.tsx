@@ -6,13 +6,11 @@ import { Input } from '@/components/ui/input';
 const Header = () => {
   const [searchOpen, setSearchOpen] = useState(false);
 
-  const categories = [
-    'Уход за лицом',
-    'Макияж',
-    'Парфюмерия',
-    'Уход за телом',
-    'Уход за волосами',
-    'Бренды'
+  const menuItems = [
+    { name: 'Каталог', href: '/catalog' },
+    { name: 'Коллекции', href: '/collections' },
+    { name: 'Бренды', href: '/catalog' },
+    { name: 'Контакты', href: '/contacts' }
   ];
 
   return (
@@ -25,13 +23,13 @@ const Header = () => {
             </a>
             
             <nav className="hidden lg:flex items-center gap-6">
-              {categories.slice(0, 4).map((cat) => (
+              {menuItems.map((item) => (
                 <a
-                  key={cat}
-                  href="#"
+                  key={item.name}
+                  href={item.href}
                   className="text-sm hover:text-accent transition-colors"
                 >
-                  {cat}
+                  {item.name}
                 </a>
               ))}
             </nav>

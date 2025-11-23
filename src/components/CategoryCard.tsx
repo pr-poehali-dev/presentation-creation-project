@@ -7,7 +7,7 @@ interface CategoryCardProps {
 const CategoryCard = ({ title, image, count }: CategoryCardProps) => {
   return (
     <a
-      href="#"
+      href="/catalog"
       className="group relative aspect-[4/5] overflow-hidden rounded-lg bg-secondary hover:shadow-lg transition-all duration-300"
     >
       <img

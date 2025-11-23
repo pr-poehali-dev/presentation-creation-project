@@ -243,7 +243,7 @@ const Index = () => {
                   </li>
                 ))}
               </ul>
-              <a href="/catalog">
+              <a href="/brands">
                 <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
                   Все бренды
                   <Icon name="ArrowRight" size={20} className="ml-2" />

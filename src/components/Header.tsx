@@ -9,7 +9,7 @@ const Header = () => {
   const menuItems = [
     { name: 'Каталог', href: '/catalog' },
     { name: 'Коллекции', href: '/collections' },
-    { name: 'Бренды', href: '/catalog' },
+    { name: 'Бренды', href: '/brands' },
     { name: 'Контакты', href: '/contacts' }
   ];
 
